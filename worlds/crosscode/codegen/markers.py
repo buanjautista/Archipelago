@@ -14,6 +14,7 @@ class Marker(typing.TypedDict):
     level: int
     map: str
     mwid: int
+    settings: dict[str, typing.Any]
 
 class MarkerGenerator:
     ctx: Context
@@ -126,11 +127,17 @@ class MarkerGenerator:
         mx = tx * 8
         my = ty * 8
 
+        settings = {}
+
+        if raw_entity["type"] == "Chest":
+            settings["defaultClearance"] = raw_loc.get("clearance", "Default");
+
         return {
             "type": raw_entity["type"],
             "level": map_floor["level"],
             "x": mx,
             "y": my,
             "map": map_name,
-            "mwid": mwid
+            "mwid": mwid,
+            "settings": settings,
         }
