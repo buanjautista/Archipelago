@@ -263,7 +263,8 @@ class CrossCodeWorld(World):
         self.variables = defaultdict(list)
 
         start_inventory = self.options.start_inventory.value
-        self.logic_mode = self.options.logic_mode.current_key
+        # self.logic_mode = self.options.logic_mode.current_key
+        self.logic_mode = "open"
         self.region_pack = self.world_data.region_packs[self.logic_mode]
 
         self.enabled_chain_names = set()
