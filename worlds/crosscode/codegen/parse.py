@@ -14,7 +14,7 @@ from ..types.items import ItemData, ProgressiveChainEntry, ProgressiveItemChain,
 from ..types.locations import AccessInfo, Condition
 from ..types.regions import RegionConnection, RegionsData
 from ..types.condition import ChestKeyCondition, ItemCondition, LocationCondition, NeverCondition, QuestCondition, RegionCondition, AnyElementCondition, \
-    OrCondition, ShopSlotCondition, VariableCondition
+    OrCondition, ShopSlotCondition, VariableCondition, VariableEntryCondition
 
 class JsonParserError(Exception):
     """
@@ -112,6 +112,8 @@ class JsonParser:
             elif cond[0] == "var":
                 if num_args == 1:
                     result.append(VariableCondition(cond[1]))
+                elif num_args == 2:
+                    result.append(VariableEntryCondition(cond[1], cond[2]))
                 else:
                     raise JsonParserError(
                         raw,
