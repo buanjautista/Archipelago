@@ -29,4 +29,9 @@ variable_definitions: dict[str, dict[str, list[Condition]]] = {
             OrCondition(subconditions=[ItemCondition(item_name='Green Leaf Shade', amount=1), ItemCondition(item_name='Red Flame Shade', amount=1)]),
         ],
     },
+    "closedGaia": {
+        "minimal": [
+        ],"full": [
+        ],
+    },
 }
