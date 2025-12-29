@@ -5,7 +5,7 @@
 
 import typing
 
-from .types.regions import RegionConnection, RegionsData
+from .types.regions import Goal, RegionConnection, RegionsData
 from .types.condition import *
 
 modes = [
@@ -18,7 +18,6 @@ default_mode = "open"
 region_packs: typing.Dict[str, RegionsData] = {
     "linear": RegionsData(
         starting_region = "2",
-        goal_region = "32",
         excluded_regions = ['1'],
         region_list = [
             '2',
@@ -92,11 +91,13 @@ region_packs: typing.Dict[str, RegionsData] = {
             RegionConnection(region_from='31', region_to='32', cond=[ItemCondition(item_name='Old Dojo Key', amount=1)]),
             RegionConnection(region_from='32', region_to='33', cond=[ItemCondition(item_name='Meteor Shade', amount=1)]),
             RegionConnection(region_from='31', region_to='22', cond=None),
-        ]
+        ],
+        goals = {
+            'creator': Goal(region='32', condition=None),
+        }
     ),
     "open": RegionsData(
         starting_region = "open2",
-        goal_region = "open19",
         excluded_regions = ['open1'],
         region_list = [
             'open2',
@@ -122,12 +123,12 @@ region_packs: typing.Dict[str, RegionsData] = {
             'open7.8',
             'open8',
             'open9',
-            'open10.Infested',
-            'open10',
-            'open10.Grove',
             'open10.Left',
+            'open10.Grove',
+            'open10.Infested',
             'open10.Right',
             'open10.Mid',
+            'open10',
             'open11',
             'open13.1',
             'open13.2',
@@ -143,7 +144,6 @@ region_packs: typing.Dict[str, RegionsData] = {
             'open16.1',
             'open17',
             'open18',
-            'open19',
             'open20',
         ],
         region_connections = [
@@ -194,8 +194,11 @@ region_packs: typing.Dict[str, RegionsData] = {
             RegionConnection(region_from='open16', region_to='open17', cond=[ItemCondition(item_name='Old Dojo Key', amount=1)]),
             RegionConnection(region_from='open16', region_to='open16.1', cond=[ItemCondition(item_name='Meteor Shade', amount=1), ItemCondition(item_name='Shock', amount=1)]),
             RegionConnection(region_from='open16', region_to='open18', cond=[VariableCondition(name='vwPassage')]),
-            RegionConnection(region_from='open16.1', region_to='open19', cond=[ItemCondition(item_name='Heat', amount=1), ItemCondition(item_name='Cold', amount=1), ItemCondition(item_name='Shock', amount=1), ItemCondition(item_name='Wave', amount=1), VariableCondition(name='vtShadeLock')]),
-        ]
+        ],
+        goals = {
+            'creator': Goal(region='open16.1', condition=[ItemCondition(item_name='Heat', amount=1), ItemCondition(item_name='Cold', amount=1), ItemCondition(item_name='Shock', amount=1), ItemCondition(item_name='Wave', amount=1), VariableCondition(name='vtShadeLock')]),
+            'monkey': Goal(region='open15.3', condition=None),
+        }
     ),
     
 }

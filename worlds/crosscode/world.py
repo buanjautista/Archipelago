@@ -500,11 +500,22 @@ class CrossCodeWorld(World):
         if self.options.shop_rando:
             self.create_shops()
 
-        goal_region = self.region_dict[self.region_pack.goal_region]
-        goal = Location(self.player, "The Creator", parent=goal_region)
-        goal.place_locked_item(Item("Victory", ItemClassification.progression, None, self.player))
+        goal_name = self.options.goal.current_key
+        goal = self.region_pack.goals[goal_name]
+        goal_region = self.region_dict[goal.region]
+        goal_location = Location(self.player, "Victory", parent=goal_region)
+        goal_location.place_locked_item(Item("Victory", ItemClassification.progression, None, self.player))
+        add_rule(
+            goal_location,
+            condition_satisfied(
+                self.player,
+                goal.condition if goal.condition is not None else [],
+                None,
+                self.logic_dict
+            )
+        )
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
-        goal_region.locations.append(goal)
+        goal_region.locations.append(goal_location)
 
     def create_items(self):
         exclude = self.multiworld.precollected_items[self.player][:]

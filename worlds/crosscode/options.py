@@ -20,6 +20,18 @@ from Options import Choice, DefaultOnToggle, OptionGroup, PerGameCommonOptions, 
 
 #     default = 1
 
+class Goal(Choice):
+    """
+    Determines what must be done to complete the game.
+    [Creator] Ascend Vermillion Tower and fight the Creator.
+    [Monkey] Ascend the Grand Krys'kajo and defeat the Son of the East.
+    """
+    display_name = "Goal"
+
+    option_creator = 0
+    option_monkey = 1
+    default = 0
+
 class VTShadeLock(Choice):
     """
     If set to a non-None value, creates an in-game barrier at the entrance of Vermillion Tower to prevent extremely
@@ -481,6 +493,7 @@ class CrossCodeOptions(PerGameCommonOptions):
     Options dataclass for CrossCode
     """
     # logic_mode: LogicMode
+    goal: Goal
     vt_shade_lock: VTShadeLock
     vw_meteor_passage: VWMeteorPassage
     closed_gaia: ClosedGaia
