@@ -9,6 +9,7 @@ class SlotOptions(typing.TypedDict):
     closedGaia: int
     vtSkip: bool
     keyrings: list[int]
+    allowBoosterGrinding: bool
     questRando: bool
     hiddenQuestRewardMode: str
     hiddenQuestObfuscationLevel: str

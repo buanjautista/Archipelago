@@ -331,6 +331,8 @@ class CrossCodeWorld(World):
 
         self.variables["rhombusHubUnlock"].append("on" if self.rhombus_hub_unlock else "off")
 
+        self.variables["allowBoosterGrinding"].append("on" if self.options.allow_booster_grinding else "off")
+
         if self.options.start_with_green_leaf_shade.value:
             self.multiworld.push_precollected(self.create_item(green_leaf_shade_name))
 
@@ -722,6 +724,7 @@ class CrossCodeWorld(World):
                 "closedGaia": self.options.closed_gaia.value,
                 "vtSkip": bool(self.options.vt_skip.value),
                 "keyrings": [self.world_data.single_items_dict[name].item_id for name in self.logic_dict["keyrings"]],
+                "allowBoosterGrinding": bool(self.options.allow_booster_grinding),
                 "questRando": bool(self.options.quest_rando.value),
                 "hiddenQuestRewardMode": self.options.hidden_quest_reward_mode.current_key,
                 "hiddenQuestObfuscationLevel": self.options.hidden_quest_obfuscation_level.current_key,

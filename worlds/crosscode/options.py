@@ -220,6 +220,13 @@ class Keyrings(Toggle):
     """
     display_name = "Keyrings"
 
+class AllowBoosterGrinding(Toggle):
+    """
+    If enabled, some locations may require grinding enemies with boosters on for gem drops.
+    If disabled, alternative methods for obtaining required items will be made available.
+    """
+    display_name = "Allow Booster Grinding"
+
 class RhombusHubUnlock(Toggle):
     """
     If enabled, allows traveling to areas out of order from the hub in Rhombus Square. Allows skipping areas such as
@@ -527,6 +534,7 @@ class CrossCodeOptions(PerGameCommonOptions):
     progressive_area_unlocks: ProgressiveAreaUnlocks
     progressive_equipment: ProgressiveEquipment
     keyrings: Keyrings
+    allow_booster_grinding: AllowBoosterGrinding
 
     shade_shuffle: ShadeShuffle
     element_shuffle: ElementShuffle
