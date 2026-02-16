@@ -234,10 +234,17 @@ class CrossCodeWorld(World):
                 self.region_dict[location.region].locations.append(location)
                 location.place_locked_item(Item(location.name, ItemClassification.progression, None, self.player))
 
+    def validate_options(self):
+        if self.options.goal.value == 3: # di'orbis goal
+            self.options.enable_dlc.value = 1
+
     def fill_pools(self):
         # do nothing if the pools are already set
         if hasattr(self, "pools"):
             return
+
+        # need to do this now, as we need to ensure options are valid before doing anything with them
+        self.validate_options()
 
         self.include_options = self.get_include_options()
 

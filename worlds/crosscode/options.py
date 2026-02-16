@@ -26,12 +26,14 @@ class Goal(Choice):
     [Creator] Ascend Vermillion Tower and fight the Creator.
     [Monkey] Ascend the Grand Krys'kajo and defeat the Son of the East.
     [Observatory] Complete all five A Promise is a Promise quests and uncover the secret of the Observatory.
+    [Di'orbis] Descend Ku'lero temple and defeat the Gods of Shape. Will force DLC to be enabled.
     """
     display_name = "Goal"
 
     option_creator = 0
     option_monkey = 1
     option_observatory = 2
+    option_diorbis = 3
     default = 0
 
 class EnableDLC(Toggle):
