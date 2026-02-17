@@ -311,11 +311,11 @@ class CrossCodeWorld(World):
 
         if self.options.shop_rando.value:
             if self.options.shop_receive_mode == ShopReceiveMode.option_per_item_type:
-                self.required_items.update(self.world_data.shop_unlock_by_id.values())
+                self.required_items.update(self.pools.item_pools["shop_unlock_by_id"])
             if self.options.shop_receive_mode == ShopReceiveMode.option_per_shop:
-                self.required_items.update(self.world_data.shop_unlock_by_shop.values())
+                self.required_items.update(self.pools.item_pools["shop_unlock_by_shop"])
             if self.options.shop_receive_mode == ShopReceiveMode.option_per_slot:
-                self.required_items.update(self.world_data.shop_unlock_by_shop_and_id.values())
+                self.required_items.update(self.pools.item_pools["shop_unlock_by_shop_and_id"])
 
         if self.options.enable_dlc.value:
             self.required_items.update(self.pools.item_pools["required_dlc"])
@@ -444,6 +444,7 @@ class CrossCodeWorld(World):
             self.logic_dict["chest_clearance_levels"][data.code] = clearance
 
     def create_shops(self):
+        # don't filter the shop pool - the regions must always exist to prevent generation errors
         for shop_name, shop in self.world_data.shops_dict.items():
             region = Region(shop_name, self.player, self.multiworld)
             self.multiworld.regions.append(region)
@@ -456,11 +457,11 @@ class CrossCodeWorld(World):
                     )
 
                     if self.options.shop_send_mode == ShopSendMode.option_per_slot:
-                        for data in self.world_data.per_shop_locations[shop_name].values():
+                        for data in self.pools.per_shop_location_pool[shop_name]:
                             self.add_location(data, region)
 
         if self.options.shop_send_mode.value == ShopSendMode.option_per_item_type:
-            for data in self.world_data.global_shop_locations.values():
+            for data in self.pools.global_shop_location_pool:
                 self.add_location(data, self.region_dict["Menu"])
 
     def create_regions(self):
@@ -538,9 +539,9 @@ class CrossCodeWorld(World):
 
         if self.options.shop_rando.value:
             if self.options.shop_send_mode.value == ShopSendMode.option_per_item_type:
-                num_needed_items += len(self.world_data.global_shop_locations)
+                num_needed_items += len(self.pools.global_shop_location_pool)
             elif self.options.shop_send_mode == ShopSendMode.option_per_slot:
-                num_needed_items += sum(len(shop) for shop in self.world_data.per_shop_locations.values())
+                num_needed_items += sum(len(shop) for shop in self.pools.per_shop_location_pool.values())
 
         # items that have been replaced by progressive items
         replaced: dict[str, list[CrossCodeItem]] = defaultdict(list)
