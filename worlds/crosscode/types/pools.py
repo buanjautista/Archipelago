@@ -105,11 +105,6 @@ class Pools:
                 (world_data.shop_unlock_by_shop, "shop_unlock_by_shop"),
                 (world_data.shop_unlock_by_shop_and_id, "shop_unlock_by_shop_and_id")
         ):
-            # pool = defaultdict(lambda: 0)
-            # for entry in shop_pool.values():
-            #     if self.__should_include(entry.metadata):
-            #         pool[entry.item] += entry.quantity
-            # self.item_pools[pool_name] = pool
             self.item_pools[pool_name] = { entry.item: 1 for entry in shop_pool.values() if self.__should_include(entry.metadata) }
 
         for chain_name, chain in world_data.progressive_chains.items():
