@@ -331,7 +331,7 @@ class ShadeShuffle(Reachability):
         "any": {
             "Green Leaf Shade", "Yellow Sand Shade", "Blue Ice Shade",
             "Red Flame Shade", "Purple Bolt Shade", "Azure Drop Shade",
-            "Green Seed Shade", "Star Shade", "Meteor Shade",
+            "Green Seed Shade", "Star Shade", "Meteor Shade", "Ancient Shade",
             "Progressive Area Unlock", "Progressive Overworld Area Unlock",
         }
     }
@@ -361,6 +361,7 @@ class SmallKeyShuffle(DungeonReachability):
         "wave-dng": { "So'najiz Key" },
         "shock-dng": { "Zir'vitar Key" },
         "tree-dng": { "Krys'kajo Key" },
+        "final-dng": { "Ku'lero Key" },
     }
 
 class MasterKeyShuffle(DungeonReachability):
@@ -373,6 +374,7 @@ class MasterKeyShuffle(DungeonReachability):
         "cold-dng": { "Mine Master Key" },
         "heat-dng": { "Faj'ro Master Key" },
         "tree-dng": { "Kajo Master Key" },
+        "final-dng": { "Ku'lero Master Key" },
     }
 
 class ChestKeyShuffle(DungeonReachability):

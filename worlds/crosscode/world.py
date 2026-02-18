@@ -102,7 +102,7 @@ class CrossCodeWorld(World):
     pre_fill_any_dungeon: list[CrossCodeItem]
 
     dungeon_location_list: dict[str, set[CrossCodeLocation]]
-    dungeon_areas: typing.ClassVar[set[str]] = {"cold-dng", "heat-dng", "shock-dng", "wave-dng", "tree-dng"}
+    dungeon_areas: typing.ClassVar[set[str]] = {"cold-dng", "heat-dng", "shock-dng", "wave-dng", "tree-dng", "final-dng"}
 
     logic_dict: LogicDict
 
