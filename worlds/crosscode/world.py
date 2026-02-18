@@ -162,6 +162,7 @@ class CrossCodeWorld(World):
         classes to check for inclusion.
         """
         return {
+            "dlc": bool(self.options.enable_dlc.value),
             "trade": False,
             "shop": bool(self.options.shop_rando.value),
             "arena": False,
@@ -308,6 +309,9 @@ class CrossCodeWorld(World):
                 self.required_items.update(self.world_data.shop_unlock_by_shop.values())
             if self.options.shop_receive_mode == ShopReceiveMode.option_per_slot:
                 self.required_items.update(self.world_data.shop_unlock_by_shop_and_id.values())
+
+        if self.options.enable_dlc.value:
+            self.required_items.update(self.pools.item_pools["required_dlc"])
 
         if self.options.vt_shade_lock.value in [1, 2]:
             self.variables["vtShadeLock"].append("shades")
@@ -711,6 +715,7 @@ class CrossCodeWorld(World):
             "dataVersion": self.world_data.data_version,
             "options": {
                 "goal": self.options.goal.current_key,
+                "dlcActive": bool(self.options.enable_dlc.value),
                 "vtShadeLock": self.options.vt_shade_lock.value,
                 "rhombusHubUnlock": bool(self.options.rhombus_hub_unlock.value),
                 "meteorPassage": bool(self.options.vw_meteor_passage.value),

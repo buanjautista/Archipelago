@@ -2,6 +2,7 @@ import typing
 
 class SlotOptions(typing.TypedDict):
     goal: str
+    dlcActive: bool
     vtShadeLock: int | bool
     rhombusHubUnlock: bool
     meteorPassage: bool

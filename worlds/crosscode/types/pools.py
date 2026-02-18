@@ -123,7 +123,7 @@ class Pools:
 
         result = True
 
-        for var in ("trade", "shop", "arena", "chest", "quest"):
+        for var in ("dlc", "trade", "shop", "arena", "chest", "quest"):
             try:
                 val = metadata[var]
             except KeyError:

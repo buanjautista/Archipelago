@@ -34,6 +34,12 @@ class Goal(Choice):
     option_observatory = 2
     default = 0
 
+class EnableDLC(Toggle):
+    """
+    If enabled, DLC areas will be placed in logic. Requires that you have the DLC installed.
+    """
+    display_name = "Enable DLC"
+
 class VTShadeLock(Choice):
     """
     If set to a non-None value, creates an in-game barrier at the entrance of Vermillion Tower to prevent extremely
@@ -63,7 +69,7 @@ class ClosedGaia(Choice):
     when unlocking the area, openable with East and West Gaia Pass obtained from Apollo duel encounter.
     [Minimal] Adds barriers to Left and Right side of Gaia (includes dungeons).
     [Full] Besides the Left and Right barriers, also adds gates in Grove and Infested areas which require the dungeon shades.
-    
+
     """
     display_name = "Closed Gaia"
 
@@ -496,6 +502,7 @@ class CrossCodeOptions(PerGameCommonOptions):
     """
     # logic_mode: LogicMode
     goal: Goal
+    enable_dlc: EnableDLC
     vt_shade_lock: VTShadeLock
     vw_meteor_passage: VWMeteorPassage
     closed_gaia: ClosedGaia
