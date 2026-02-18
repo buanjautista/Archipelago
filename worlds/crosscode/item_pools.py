@@ -10,6 +10,21 @@ from .types.items import ItemData, ItemPoolEntry
 from .types.condition import *
 
 item_pools_template: dict[str, list[ItemPoolEntry]] = {
+    "required_dlc": [
+        ItemPoolEntry(item=items_dict['Azure Archipelago Pass', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Ancient Shade', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['SP Upgrade', 1], quantity=1),
+        ItemPoolEntry(item=items_dict["MacGuffin's Coin", 1], quantity=3),
+        ItemPoolEntry(item=items_dict["Ku'lero Key", 1], quantity=3),
+        ItemPoolEntry(item=items_dict["Ku'lero Master Key", 1], quantity=1),
+        ItemPoolEntry(item=items_dict["Champion's Towel", 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Light Gem', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['The Last Straw', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Asteroid Chunk', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Moon Chunk', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Meteor Chunk', 1], quantity=1),
+        ItemPoolEntry(item=items_dict['Rift Spore', 1], quantity=1),
+    ],
     "required": [
         ItemPoolEntry(item=items_dict['Heat', 1], quantity=1),
         ItemPoolEntry(item=items_dict['Cold', 1], quantity=1),
