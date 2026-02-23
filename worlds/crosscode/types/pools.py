@@ -32,8 +32,8 @@ class Pools:
 
     options: IncludeOptions
 
-    location_pool: set[LocationData]
-    event_pool: set[LocationData]
+    location_pool: list[LocationData]
+    event_pool: list[LocationData]
 
     per_shop_location_pool: dict[str, set[LocationData]]
     global_shop_location_pool: set[LocationData]
@@ -57,8 +57,8 @@ class Pools:
 
     def __init__(self, world_data: WorldData, opts: IncludeOptions):
         self.options = opts
-        self.location_pool = set()
-        self.event_pool = set()
+        self.location_pool = []
+        self.event_pool = []
         self.per_shop_location_pool = {}
         self.global_shop_location_pool = set()
         self.item_pools = {}
@@ -70,11 +70,11 @@ class Pools:
 
         for loc in world_data.pool_locations:
             if self.__should_include(loc.metadata):
-                self.location_pool.add(loc)
+                self.location_pool.append(loc)
 
         for ev in world_data.events_dict.values():
             if self.__should_include(ev.metadata):
-                self.event_pool.add(ev)
+                self.event_pool.append(ev)
 
         for name, pool in world_data.item_pools_template.items():
             counter = defaultdict(lambda: 0)
