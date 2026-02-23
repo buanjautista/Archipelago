@@ -279,6 +279,14 @@ class CrossCodeWorld(World):
                 "chest key placement in own dungeons or original dungeons"
             )
 
+        if (
+            self.options.goal.value == self.options.goal.option_observatory and
+            not self.options.quest_rando.value
+        ):
+            raise OptionError(
+                "Observatory goal requires quest randomization to be enabled"
+            )
+
         self.fill_pools()
 
         self.variables = defaultdict(list)
@@ -693,14 +701,7 @@ class CrossCodeWorld(World):
         # Prevent minimal accessibility from locking non-required keys, and other dungeon items, behind themselves when
         # the goal is reachable without them.
         if self.options.accessibility == "minimal":
-            if all_state.has("Victory", self.player):
-                # Remove the event that the completion_condition checks for, so that the completion condition will
-                # return False.
-                all_state.remove_item("Victory", self.player)
-            else:
-                # Tell the all_state that it has already collected the item from the location the "Victory" event is
-                # placed at, so that it won't collect the "Victory" event when sweeping.
-                all_state.advancements.add(self.get_location("The Creator"))
+            all_state.remove_item("Victory", self.player)
 
         all_state.sweep_for_advancements()
 
