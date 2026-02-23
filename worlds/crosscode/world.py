@@ -235,17 +235,10 @@ class CrossCodeWorld(World):
                 self.region_dict[location.region].locations.append(location)
                 location.place_locked_item(Item(location.name, ItemClassification.progression, None, self.player))
 
-    def validate_options(self):
-        if self.options.goal.value == 3: # di'orbis goal
-            self.options.enable_dlc.value = 1
-
     def fill_pools(self):
         # do nothing if the pools are already set
         if hasattr(self, "pools"):
             return
-
-        # need to do this now, as we need to ensure options are valid before doing anything with them
-        self.validate_options()
 
         self.include_options = self.get_include_options()
 
@@ -293,6 +286,14 @@ class CrossCodeWorld(World):
         ):
             raise OptionError(
                 "Observatory goal requires quest randomization to be enabled"
+            )
+
+        if (
+            self.options.goal.value == self.options.goal.option_diorbis and
+            not self.options.enable_dlc.value
+        ):
+            raise OptionError(
+                "Di'orbis goal requires DLC to be enabled"
             )
 
         self.fill_pools()
