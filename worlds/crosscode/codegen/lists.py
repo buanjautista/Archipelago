@@ -529,6 +529,13 @@ class ListInfo:
         raw["reserved"] = True
         _, item = self.__add_item_data(f"Progressive {chain.display_name}", raw)
         self.progressive_items[name] = item
+        if raw.get("group", False) and isinstance(chain, ProgressiveItemChainSingle):
+            if isinstance(raw["group"], str):
+                group_name = raw["group"]
+            else:
+                group_name = chain.display_name
+            self.item_groups[group_name] = [entry.item for entry in chain.items]
+            self.item_groups[group_name].append(item)
 
     def __add_progressive_chains(self, raw: dict[str, dict[str, typing.Any]]):
         """
