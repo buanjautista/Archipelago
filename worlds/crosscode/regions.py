@@ -123,12 +123,12 @@ region_packs: typing.Dict[str, RegionsData] = {
             'open7.8',
             'open8',
             'open9',
-            'open10',
-            'open10.Infested',
-            'open10.Grove',
             'open10.Left',
-            'open10.Mid',
+            'open10.Grove',
+            'open10.Infested',
+            'open10',
             'open10.Right',
+            'open10.Mid',
             'open11',
             'open13.1',
             'open13.2',
@@ -201,5 +201,23 @@ region_packs: typing.Dict[str, RegionsData] = {
             'observatory': Goal(region='open2', condition=[LocationCondition(location_name='The Observatory')]),
         }
     ),
+    
+}
+
+region_botanics_amounts: dict[str, dict[str, int]] = {
+    "open": {
+        'open3': 20,
+        'open4.4': 6,
+        'open5': 18,
+        'open8': 7,
+        'open10': 5,
+        'open10.Mid': 1,
+        'open10.Left': 6,
+        'open10.Right': 2,
+        'open10.Infested': 1,
+        'open16': 9,
+        'open20': 1,
+        'open11': 1,
+    }
     
 }
