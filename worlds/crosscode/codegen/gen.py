@@ -171,8 +171,6 @@ class FileGenerator:
         """
         template = self.environment.get_template("regions.template.py")
 
-        print(self.lists.region_botanics_amounts)
-
         regions_complete = template.render(
             modes_string=", ".join([f'"{x}"' for x in self.ctx.rando_data["modes"]]),
             region_packs=self.regions_data,

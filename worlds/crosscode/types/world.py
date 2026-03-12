@@ -14,6 +14,7 @@ class WorldData:
     # regions.py
     region_packs: dict[str, RegionsData]
     modes: list[str] = field(init=False)
+    region_botanics_amounts: dict[str, dict[str, int]]
 
     # locations.py
     locations_dict: dict[str, LocationData]
