@@ -405,6 +405,7 @@ class CrossCodeWorld(World):
             "shop_unlock_by_id": self.world_data.shop_unlock_by_id,
             "shop_unlock_by_shop": self.world_data.shop_unlock_by_shop,
             "shop_unlock_by_shop_and_id": self.world_data.shop_unlock_by_shop_and_id,
+            "world_data": self.world_data,
         }
 
         # Universal Tracker support

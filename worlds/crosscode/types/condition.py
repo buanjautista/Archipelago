@@ -3,6 +3,7 @@ import abc
 from dataclasses import field, dataclass
 
 from BaseClasses import CollectionState
+from .world import WorldData
 from ..options import ShopReceiveMode
 
 from .items import ItemData
@@ -18,6 +19,7 @@ class LogicDict(typing.TypedDict):
     shop_unlock_by_id: dict[int, ItemData]
     shop_unlock_by_shop: dict[str, ItemData]
     shop_unlock_by_shop_and_id: dict[tuple[str, int], ItemData]
+    world_data: WorldData
 
 class Condition(abc.ABC):
     @abc.abstractmethod
@@ -164,6 +166,18 @@ class ShopSlotCondition(Condition):
         if args["shop_receive_mode"] == ShopReceiveMode.option_per_slot:
             return state.has(args["shop_unlock_by_shop_and_id"][self.shop_name, self.item_id].name, player)
         return True
+
+@dataclass
+class BotanicsCompletionCondition(Condition):
+    amount: int
+
+    def satisfied(self, state: CollectionState, player: int, location: int | None, args: LogicDict) -> bool:
+        collected = sum(
+            state.has(item, player)
+            for item in args["world_data"].region_botanics_amounts[args["mode"]]
+        )
+
+        return collected >= self.amount
 
 class NeverCondition(Condition):
     def satisfied(self, state: CollectionState, player: int, location: int | None, args: LogicDict) -> bool:
