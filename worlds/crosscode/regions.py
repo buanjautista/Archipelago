@@ -216,8 +216,8 @@ region_botanics_amounts: dict[str, dict[str, int]] = {
         'open10.Right': 2,
         'open10.Infested': 1,
         'open16': 9,
-        'open20': 1,
         'open11': 1,
+        'open20': 1,
     }
     
 }

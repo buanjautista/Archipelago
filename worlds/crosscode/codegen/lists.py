@@ -501,10 +501,36 @@ class ListInfo:
         for name, pool in raw.items():
             self.__add_item_group(name, pool)
 
+    def __add_plant(self, name: str, raw: dict[str, typing.Any]) -> LocationData:
+        for mode, region in raw["region"].items():
+            self.region_botanics_amounts[mode][region] += 1
+
+        name = f"Botanics: {name}"
+        area = raw["location"].get("area", None)
+        area_name = self.ctx.area_names[area]
+
+        location = LocationData(
+            name=name,
+            code=self.__get_or_allocate_location_id(name),
+            access=AccessInfo(region=raw["region"], cond=None),
+            area=area
+        )
+
+        if area != None:
+            try:
+                self.location_groups[area_name].append(location)
+                self.location_groups[f"{area_name} Botanics"].append(location)
+            except KeyError:
+                print(f"Cannot add location '{name}' in area '{area}'")
+
+        self.locations_data[name] = location
+        self.location_groups["Botanics"].append(location)
+
+        return location
+
     def __add_botanics(self, raw: dict[str, dict[str, typing.Any]]):
-        for plant in raw.values():
-            for mode, region in plant["region"].items():
-                self.region_botanics_amounts[mode][region] += 1
+        for name, plant in raw.items():
+            self.__add_plant(name, plant)
 
     def __add_reward(self, reward: list[dict[str, typing.Any]]) -> ItemData:
         """
