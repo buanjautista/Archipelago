@@ -4,7 +4,7 @@ Provides the default WorldData instance based on the generated data.
 
 from .common import BASE_ID, DATA_VERSION
 from .types.world import WorldData
-from .regions import region_packs
+from .regions import region_packs, region_botanics_amounts
 from .items import single_items_dict, items_dict, items_by_full_name, keyring_items
 from .shops import shop_dict, per_shop_locations, global_shop_locations, shop_unlock_by_id, shop_unlock_by_shop, \
     shop_unlock_by_shop_and_id
@@ -17,6 +17,7 @@ static_world_data = WorldData(
     data_version=DATA_VERSION,
     base_id=BASE_ID,
     region_packs=region_packs,
+    region_botanics_amounts=region_botanics_amounts,
     locations_dict=locations_dict,
     events_dict=events_dict,
     locked_locations=locked_locations,

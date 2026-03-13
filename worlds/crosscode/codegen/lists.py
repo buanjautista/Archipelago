@@ -66,6 +66,8 @@ class ListInfo:
     shop_unlock_by_shop_and_id: dict[tuple[str, int], ItemData]
     global_slot_region_conditions_list: dict[str, list[Condition]]
 
+    region_botanics_amounts: dict[str, dict[str, int]] # { mode => { region => number of plants } }
+
     progressive_chains: dict[str, ProgressiveItemChain]
     progressive_items: dict[str, ItemData]
 
@@ -108,6 +110,8 @@ class ListInfo:
         self.shop_unlock_by_shop = {}
         self.shop_unlock_by_shop_and_id = {}
         self.global_slot_region_conditions_list = {}
+
+        self.region_botanics_amounts = defaultdict(lambda: defaultdict(lambda: 0))
 
         self.json_parser = JsonParser(self.ctx)
         self.json_parser.single_items_dict = self.single_items_dict
@@ -156,6 +160,8 @@ class ListInfo:
         self.__add_progressive_chains(file["progressiveChains"])
 
         self.__add_item_group_list(self.ctx.rando_data["itemGroups"])
+
+        self.__add_botanics(file["botanics"])
 
         self.__add_vars(self.ctx.rando_data["vars"])
 
@@ -494,6 +500,11 @@ class ListInfo:
     def __add_item_group_list(self, raw: dict[str, list[list[typing.Any]]]):
         for name, pool in raw.items():
             self.__add_item_group(name, pool)
+
+    def __add_botanics(self, raw: dict[str, dict[str, typing.Any]]):
+        for plant in raw.values():
+            for mode, region in plant["region"].items():
+                self.region_botanics_amounts[mode][region] += 1
 
     def __add_reward(self, reward: list[dict[str, typing.Any]]) -> ItemData:
         """

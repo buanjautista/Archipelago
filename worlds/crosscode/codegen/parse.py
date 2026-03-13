@@ -137,6 +137,17 @@ class JsonParser:
                         f"expected 2 arguments, not {num_args}"
                     )
 
+            elif cond[0] == "botanics":
+                if num_args == 1:
+                    result.append(BotanicsCompletionCondition(cond[1]))
+                else:
+                    raise JsonParserError(
+                        raw,
+                        cond,
+                        "botanics completion condition",
+                        f"expected 1 arguments, not {num_args}"
+                    )
+
             elif cond[0] == "never":
                 result.append(NeverCondition())
 
