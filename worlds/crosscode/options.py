@@ -517,6 +517,8 @@ class CrossCodeOptions(PerGameCommonOptions):
     shop_send_mode: ShopSendMode
     shop_receive_mode: ShopReceiveMode
 
+    botanity: Botanity
+
     start_with_green_leaf_shade: StartWithGreenLeafShade
     start_with_chest_detector: StartWithChestDetector
     start_with_discs: StartWithDiscs

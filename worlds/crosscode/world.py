@@ -168,6 +168,7 @@ class CrossCodeWorld(World):
             "arena": False,
             "chest": True,
             "quest": bool(self.options.quest_rando.value),
+            "botanics": bool(self.options.botanity.value),
         }
 
     def create_location(self, location: str, event_from_location: bool = False) -> CrossCodeLocation:

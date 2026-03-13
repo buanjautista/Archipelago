@@ -513,7 +513,10 @@ class ListInfo:
             name=name,
             code=self.__get_or_allocate_location_id(name),
             access=AccessInfo(region=raw["region"], cond=None),
-            area=area
+            area=area,
+            metadata={
+                "botanics": True
+            }
         )
 
         if area != None:
@@ -524,6 +527,7 @@ class ListInfo:
                 print(f"Cannot add location '{name}' in area '{area}'")
 
         self.locations_data[name] = location
+        self.pool_locations.append(location)
         self.location_groups["Botanics"].append(location)
 
         return location
