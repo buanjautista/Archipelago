@@ -145,28 +145,22 @@ region_packs: typing.Dict[str, RegionsData] = {
             'open7.8',
             'open8',
             'open9',
-            'open10.Left',
-            'open10.Grove',
-            'open10',
-            'open10.Mid',
-            'open10.Infested',
-            'open10.Right',
-            'open11',
-            'open13.1',
-            'open13.2',
-            'open14.1',
-            'open14.2',
-            'open14.3',
-            'open14.4',
-            'open14.5',
-            'open15.1',
-            'open15.2',
-            'open15.3',
-            'open16',
-            'open16.1',
-            'open17',
-            'open18',
-            'open20',
+            'openDLC1',
+            'openDLC_Beach',
+            'openDLC_DungeonB2_L',
+            'openDLC_DungeonB2_L.1',
+            'openDLC_DungeonB2_R',
+            'openDLC_DungeonB2_R.1',
+            'openDLC_DungeonB3_L',
+            'openDLC_DungeonB3_R',
+            'openDLC_DungeonBoss',
+            'openDLC_DungeonEntry',
+            'openDLC_DungeonEntry.1F',
+            'openDLC_DungeonEntry.1L',
+            'openDLC_DungeonEntry.1R',
+            'openDLC_DungeonGF_L',
+            'openDLC_DungeonGF_R',
+            'openDLC_DungeonMain',
         ],
         region_connections = [
             RegionConnection(region_from='open2', region_to='open3', cond=[ItemCondition(item_name='Green Leaf Shade', amount=1)]),
@@ -241,7 +235,7 @@ region_packs: typing.Dict[str, RegionsData] = {
             'diorbis': Goal(region='openDLC_DungeonBoss', condition=None),
         }
     ),
-
+    
 }
 
 region_botanics_amounts: dict[str, dict[str, int]] = {
@@ -259,5 +253,5 @@ region_botanics_amounts: dict[str, dict[str, int]] = {
         'open20': 1,
         'open11': 1,
     }
-
+    
 }

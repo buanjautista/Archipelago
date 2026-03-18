@@ -424,6 +424,19 @@ locations_data = [
     LocationData(code=3235824374, name='Talatu Bergen 25%', area='bergen', metadata={'quest': True}, access=AccessInfo(region={'linear': '3', 'open': 'open3'}, cond=[LocationCondition(location_name='Talatu Introductions'), ItemCondition(item_name='Disc of Flora', amount=1), BotanicsCompletionCondition(amount=20)])),
     LocationData(code=3235824375, name="Talatu Ba'kii 50%", area='heat-village', metadata={'quest': True}, access=AccessInfo(region={'linear': '11', 'open': 'open5'}, cond=[LocationCondition(location_name='Talatu Bergen 25%'), BotanicsCompletionCondition(amount=39)])),
     LocationData(code=3235824376, name='Talatu Basin 75%', area='jungle-city', metadata={'quest': True}, access=AccessInfo(region={'linear': '23', 'open': 'open10'}, cond=[LocationCondition(location_name="Talatu Ba'kii 50%"), BotanicsCompletionCondition(amount=58)])),
+    LocationData(code=3235824834, name='Full Rhombus Pass cutscene', area='evo-village', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC1'})),
+    LocationData(code=3235824835, name='Ancient Shade SP Upgrade', area='beach', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'}, cond=[ItemCondition(item_name='Heat', amount=1), ItemCondition(item_name='Cold', amount=1)])),
+    LocationData(code=3235824836, name='Ancient Shade Pickup', area='beach', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'}, cond=[ItemCondition(item_name='Heat', amount=1), ItemCondition(item_name='Cold', amount=1)])),
+    LocationData(code=3235824837, name='Ancient Shade Circuit Override', area='rookie-harbor', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'}, cond=[ItemCondition(item_name='Heat', amount=1), ItemCondition(item_name='Cold', amount=1)])),
+    LocationData(code=3235824838, name="Ku'lero GF Elevator Left", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonGF_L'})),
+    LocationData(code=3235824839, name="Ku'lero GF Elevator Right", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonGF_R'})),
+    LocationData(code=3235824840, name='Gynthar Boss Fight', area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonMain'})),
+    LocationData(code=3235824841, name="Ku'lero B2 Elevator Left", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB2_L'})),
+    LocationData(code=3235824842, name="Ku'lero B2 Elevator Right", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB2_R'})),
+    LocationData(code=3235824843, name="Ku'lero B2 Birds Left", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB2_L'})),
+    LocationData(code=3235824844, name="Ku'lero B2 Birds Right", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB2_R'})),
+    LocationData(code=3235824845, name="Ku'lero B3 Elevator Left", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB3_L'})),
+    LocationData(code=3235824846, name="Ku'lero B3 Elevator Right", area='final-dng', metadata={'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonB3_R'})),
     LocationData(code=3235824368, name='Heat Pedestal', area='cold-dng', access=AccessInfo(region={'linear': '8', 'open': 'open4.5'})),
     LocationData(code=3235824369, name='Cold Pedestal', area='heat-dng', access=AccessInfo(region={'linear': '16', 'open': 'open7.4'})),
     LocationData(code=3235824370, name='Shock Pedestal', area='wave-dng', access=AccessInfo(region={'linear': '27', 'open': 'open14.5'})),
@@ -3511,6 +3524,9 @@ location_groups = {
         locations_dict['Steamy Booze'],
         locations_dict['Steamy Challenge'],
         locations_dict['A Promise is a Promise 3'],
+        locations_dict['Spiritual Drinks - Reward 1'],
+        locations_dict['Spiritual Drinks - Reward 2'],
+        locations_dict['Spiritual Drinks - Reward 3'],
     },
     "Autumn's Rise Quests": {
         locations_dict['First Steps - Reward 1'],
@@ -3920,5 +3936,5 @@ location_groups = {
         locations_dict['Shop Slot: Cross Mail (Beach Weapons)'],
         locations_dict['Shop Slot: Cross Boots (Beach Weapons)'],
     },
-
+    
 }
