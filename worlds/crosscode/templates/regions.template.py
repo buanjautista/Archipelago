@@ -20,3 +20,9 @@ region_packs: typing.Dict[str, RegionsData] = {
     ),
     {% endfor %}
 }
+
+region_botanics_amounts: dict[str, dict[str, int]] = {
+    {% for mode, amounts in region_botanics_amounts.items() -%}
+    "{{mode}}": {{ amounts | emit_dict("constant", "constant") | indent(4) }}
+    {% endfor %}
+}
