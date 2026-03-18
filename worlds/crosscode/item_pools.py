@@ -10,7 +10,7 @@ from .types.items import ItemData, ItemPoolEntry
 from .types.condition import *
 
 item_pools_template: dict[str, list[ItemPoolEntry]] = {
-    "required_dlc": [
+    "Required (DLC)": [
         ItemPoolEntry(item=items_dict['Azure Archipelago Pass', 1], quantity=1),
         ItemPoolEntry(item=items_dict['Ancient Shade', 1], quantity=1),
         ItemPoolEntry(item=items_dict['SP Upgrade', 1], quantity=1),
@@ -847,7 +847,7 @@ item_groups: dict[str, list[ItemData]] = {
         items_dict["Slot Unlock: Goat Cheese (Goat Zira's Shop)", 1],
         items_dict["Slot Unlock: Goat Milk (Goat Zira's Shop)", 1],
     ],
-    "required_dlc": [
+    "Required (DLC)": [
         items_dict['Azure Archipelago Pass', 1],
         items_dict['Ancient Shade', 1],
         items_dict['SP Upgrade', 1],

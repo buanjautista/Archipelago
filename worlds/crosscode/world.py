@@ -343,7 +343,7 @@ class CrossCodeWorld(World):
                 self.required_items.update(self.pools.item_pools["shop_unlock_by_shop_and_id"])
 
         if self.options.enable_dlc.value:
-            self.required_items.update(self.pools.item_pools["required_dlc"])
+            self.required_items.update(self.pools.item_pools["Required (DLC)"])
 
         if self.options.vt_shade_lock.value in [1, 2]:
             self.variables["vtShadeLock"].append("shades")
