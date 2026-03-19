@@ -249,7 +249,7 @@ class FileGenerator:
                 },
                 "unlocks": {
                     "byId": {
-                        item_id: data.combo_id
+                        item_id: data.item.combo_id
                         for item_id, data in self.lists.shop_unlock_by_id.items()
                     },
                     "byShop": {},
@@ -325,10 +325,10 @@ class FileGenerator:
             )
 
         for shop_name, data in self.lists.shop_unlock_by_shop.items():
-            data_out["shops"]["unlocks"]["byShop"][shop_name] = data.combo_id
+            data_out["shops"]["unlocks"]["byShop"][shop_name] = data.item.combo_id
 
         for (shop_name, item_id), data in self.lists.shop_unlock_by_shop_and_id.items():
-            data_out["shops"]["unlocks"]["byShopAndId"][shop_name][item_id] = data.combo_id
+            data_out["shops"]["unlocks"]["byShopAndId"][shop_name][item_id] = data.item.combo_id
 
         try:
             os.mkdir(self.data_out_dir)

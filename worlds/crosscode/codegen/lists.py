@@ -61,9 +61,9 @@ class ListInfo:
     shop_data: dict[str, ShopData]
     per_shop_locations: dict[str, dict[int, LocationData]]
     global_shop_locations: dict[int, LocationData]
-    shop_unlock_by_id: dict[int, ItemData]
-    shop_unlock_by_shop: dict[str, ItemData]
-    shop_unlock_by_shop_and_id: dict[tuple[str, int], ItemData]
+    shop_unlock_by_id: dict[int, ItemPoolEntry]
+    shop_unlock_by_shop: dict[str, ItemPoolEntry]
+    shop_unlock_by_shop_and_id: dict[tuple[str, int], ItemPoolEntry]
     global_slot_region_conditions_list: dict[str, list[Condition]]
 
     region_botanics_amounts: dict[str, dict[str, int]] # { mode => { region => number of plants } }
@@ -342,14 +342,14 @@ class ListInfo:
         real_name = dbentry["name"]["en_US"]
 
         metadata = raw_shop.get("metadata", {})
-        metadata["shops"] = True
+        metadata["shop"] = True
         access_info = self.json_parser.parse_location_access_info(raw_shop)
 
         shop_locs = self.per_shop_locations[shop_display_name]
 
         by_shop_name =  f"Shop Unlock: {shop_base_name}"
         by_shop_item = self.__add_shop_unlock_item(by_shop_name)
-        self.shop_unlock_by_shop[shop_name] = by_shop_item
+        self.shop_unlock_by_shop[shop_name] = ItemPoolEntry(by_shop_item, 1, metadata)
         self.descriptions[by_shop_item.combo_id] = {
             "en_US": f"Unlocks \\c[3]all item slots\\c[0] in the shop \\c[3]{real_name}\\c[0]."
         }
@@ -392,7 +392,7 @@ class ListInfo:
 
             by_shop_and_id_name = f"Slot Unlock: {item_name} ({shop_display_name})"
             by_shop_and_id_item = self.__add_shop_unlock_item(by_shop_and_id_name)
-            self.shop_unlock_by_shop_and_id[shop_name, item_id] = by_shop_and_id_item
+            self.shop_unlock_by_shop_and_id[shop_name, item_id] = ItemPoolEntry(by_shop_and_id_item, 1, metadata)
 
             slots_item_group.append(by_shop_and_id_item)
             this_shop_item_group.append(by_shop_and_id_item)
@@ -427,7 +427,7 @@ class ListInfo:
 
                 by_id_name = f"Global Slot Unlock: {item_name}"
                 by_id_item = self.__add_shop_unlock_item(by_id_name)
-                self.shop_unlock_by_id[item_id] = by_id_item
+                self.shop_unlock_by_id[item_id] = ItemPoolEntry(by_id_item, 1, metadata)
                 self.global_shop_locations[item_id] = global_location
 
                 global_item_group.append(by_id_item)
