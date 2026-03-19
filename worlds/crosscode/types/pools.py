@@ -147,13 +147,13 @@ class Pools:
 
         result = True
 
-        for var in ("dlc", "trade", "shop", "arena", "chest", "quest"):
-            try:
-                val = metadata[var]
-            except KeyError:
+        for var in ("dlc", "trade", "shop", "arena", "chest", "quest", "botanics"):
+            val = metadata.get(var)
+
+            if val is None:
                 continue
 
-            if val != self.options[var]:
+            if val != self.options.get(var):
                 result = False
                 break
 

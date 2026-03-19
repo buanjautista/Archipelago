@@ -181,6 +181,12 @@ class ShopDialogHints(DefaultOnToggle):
     """
     display_name = "Shop Dialog Hints"
 
+class Botanity(Toggle):
+    """
+    If enabled, acquiring all the information about each plant by collecting drops is a location.
+    """
+    display_name = "Botanics Randomization"
+
 class StartWithGreenLeafShade(DefaultOnToggle):
     """
     If enabled, the player will start with the green leaf shade, unlocking Autumn's Fall. This makes the early game far
@@ -528,6 +534,8 @@ class CrossCodeOptions(PerGameCommonOptions):
     shop_dialog_hints: ShopDialogHints
     shop_send_mode: ShopSendMode
     shop_receive_mode: ShopReceiveMode
+
+    botanity: Botanity
 
     start_with_green_leaf_shade: StartWithGreenLeafShade
     start_with_chest_detector: StartWithChestDetector
