@@ -789,6 +789,7 @@ class CrossCodeWorld(World):
                 "shopReceiveMode": shop_receive_mode_string,
                 "shopDialogHints": bool(self.options.shop_dialog_hints.value),
                 "chestClearanceLevels": self.logic_dict["chest_clearance_levels"],
+                "botanicsCompletionAmount": self.options.botanics_completion_amount.value,
             }
         }
 
