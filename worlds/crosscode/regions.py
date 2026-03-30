@@ -252,6 +252,8 @@ region_botanics_amounts: dict[str, dict[str, int]] = {
         'open16': 9,
         'open11': 1,
         'open20': 1,
+        'openDLC_DungeonEntry': 5,
+        'openDLC_Beach': 6,
     }
     
 }
