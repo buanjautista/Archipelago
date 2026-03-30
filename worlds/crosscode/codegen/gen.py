@@ -256,6 +256,7 @@ class FileGenerator:
                     "byShopAndId": defaultdict(dict)
                 },
             },
+            "botanics": self.lists.botanics_internal_names_to_ids,
             "descriptions": self.lists.descriptions,
             "markers": self.lists.markers
         }
