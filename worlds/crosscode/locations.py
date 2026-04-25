@@ -1003,6 +1003,17 @@ locations_data = [
     LocationData(code=3235824994, name='Botanics: Sprout of Truth', area='rookie-harbor', metadata={'botanics': True}, access=AccessInfo(region={'open': 'open8'})),
     LocationData(code=3235824995, name='Botanics: Sprout of Spirit', area='jungle-city', metadata={'botanics': True}, access=AccessInfo(region={'open': 'open11'})),
     LocationData(code=3235824996, name='Botanics: Sprout of Ages', area='rhombus-sqr', metadata={'botanics': True}, access=AccessInfo(region={'open': 'open20'})),
+    LocationData(code=3235824997, name='Botanics: Alpha Cone Sprout', area='final-dng', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonEntry'})),
+    LocationData(code=3235824998, name='Botanics: Beta Cone Sprout', area='final-dng', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonEntry'})),
+    LocationData(code=3235824999, name='Botanics: Gamma Cone Sprout', area='final-dng', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonEntry'})),
+    LocationData(code=3235825000, name='Botanics: Delta Cone Sprout', area='final-dng', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonEntry'})),
+    LocationData(code=3235825001, name='Botanics: Alpha Shard', area='final-dng', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_DungeonEntry'})),
+    LocationData(code=3235825002, name='Botanics: Alpha Coral Blub', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
+    LocationData(code=3235825003, name='Botanics: Beta Coral Bulb', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
+    LocationData(code=3235825004, name='Botanics: Alpha Keen Sprout', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
+    LocationData(code=3235825005, name='Botanics: Beta Keen Sprout', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
+    LocationData(code=3235825006, name='Botanics: Alpha Fossil Stone', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
+    LocationData(code=3235825007, name='Botanics: Beta Fossil Stone', area='beach', metadata={'botanics': True, 'dlc': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
 ]
 
 locations_dict = { location.name: location for location in locations_data }
@@ -2208,6 +2219,17 @@ pool_locations = [
     locations_dict['Botanics: Sprout of Truth'],
     locations_dict['Botanics: Sprout of Spirit'],
     locations_dict['Botanics: Sprout of Ages'],
+    locations_dict['Botanics: Alpha Cone Sprout'],
+    locations_dict['Botanics: Beta Cone Sprout'],
+    locations_dict['Botanics: Gamma Cone Sprout'],
+    locations_dict['Botanics: Delta Cone Sprout'],
+    locations_dict['Botanics: Alpha Shard'],
+    locations_dict['Botanics: Alpha Coral Blub'],
+    locations_dict['Botanics: Beta Coral Bulb'],
+    locations_dict['Botanics: Alpha Keen Sprout'],
+    locations_dict['Botanics: Beta Keen Sprout'],
+    locations_dict['Botanics: Alpha Fossil Stone'],
+    locations_dict['Botanics: Beta Fossil Stone'],
 ]
 
 location_groups = {
@@ -3550,6 +3572,12 @@ location_groups = {
         locations_dict['Shop Slot: Cross Edge (Beach Weapons)'],
         locations_dict['Shop Slot: Cross Mail (Beach Weapons)'],
         locations_dict['Shop Slot: Cross Boots (Beach Weapons)'],
+        locations_dict['Botanics: Alpha Coral Blub'],
+        locations_dict['Botanics: Beta Coral Bulb'],
+        locations_dict['Botanics: Alpha Keen Sprout'],
+        locations_dict['Botanics: Beta Keen Sprout'],
+        locations_dict['Botanics: Alpha Fossil Stone'],
+        locations_dict['Botanics: Beta Fossil Stone'],
     },
     "Azure Archipelago Chests": {
         locations_dict['Azure A.: Sandy Bar Lower'],
@@ -3592,6 +3620,11 @@ location_groups = {
         locations_dict["Ku'lero B2 Birds Right"],
         locations_dict["Ku'lero B3 Elevator Left"],
         locations_dict["Ku'lero B3 Elevator Right"],
+        locations_dict['Botanics: Alpha Cone Sprout'],
+        locations_dict['Botanics: Beta Cone Sprout'],
+        locations_dict['Botanics: Gamma Cone Sprout'],
+        locations_dict['Botanics: Delta Cone Sprout'],
+        locations_dict['Botanics: Alpha Shard'],
     },
     "Ku'lero Temple Chests": {
         locations_dict["Ku'lero: Comet Trail Right"],
@@ -4253,6 +4286,17 @@ location_groups = {
         locations_dict['Botanics: Sprout of Truth'],
         locations_dict['Botanics: Sprout of Spirit'],
         locations_dict['Botanics: Sprout of Ages'],
+        locations_dict['Botanics: Alpha Cone Sprout'],
+        locations_dict['Botanics: Beta Cone Sprout'],
+        locations_dict['Botanics: Gamma Cone Sprout'],
+        locations_dict['Botanics: Delta Cone Sprout'],
+        locations_dict['Botanics: Alpha Shard'],
+        locations_dict['Botanics: Alpha Coral Blub'],
+        locations_dict['Botanics: Beta Coral Bulb'],
+        locations_dict['Botanics: Alpha Keen Sprout'],
+        locations_dict['Botanics: Beta Keen Sprout'],
+        locations_dict['Botanics: Alpha Fossil Stone'],
+        locations_dict['Botanics: Beta Fossil Stone'],
     },
     "Bergen Trail Botanics": {
         locations_dict['Botanics: Alpha Feather Bush'],
@@ -4346,6 +4390,21 @@ location_groups = {
     },
     "Rhombus Square Botanics": {
         locations_dict['Botanics: Sprout of Ages'],
+    },
+    "Ku'lero Temple Botanics": {
+        locations_dict['Botanics: Alpha Cone Sprout'],
+        locations_dict['Botanics: Beta Cone Sprout'],
+        locations_dict['Botanics: Gamma Cone Sprout'],
+        locations_dict['Botanics: Delta Cone Sprout'],
+        locations_dict['Botanics: Alpha Shard'],
+    },
+    "Azure Archipelago Botanics": {
+        locations_dict['Botanics: Alpha Coral Blub'],
+        locations_dict['Botanics: Beta Coral Bulb'],
+        locations_dict['Botanics: Alpha Keen Sprout'],
+        locations_dict['Botanics: Beta Keen Sprout'],
+        locations_dict['Botanics: Alpha Fossil Stone'],
+        locations_dict['Botanics: Beta Fossil Stone'],
     },
     
 }

@@ -67,6 +67,7 @@ class ListInfo:
     global_slot_region_conditions_list: dict[str, list[Condition]]
 
     region_botanics_amounts: dict[str, dict[str, int]] # { mode => { region => number of plants } }
+    botanics_internal_names_to_ids: dict[str, int]
 
     progressive_chains: dict[str, ProgressiveItemChain]
     progressive_items: dict[str, ItemData]
@@ -112,6 +113,7 @@ class ListInfo:
         self.global_slot_region_conditions_list = {}
 
         self.region_botanics_amounts = defaultdict(lambda: defaultdict(lambda: 0))
+        self.botanics_internal_names_to_ids = {}
 
         self.json_parser = JsonParser(self.ctx)
         self.json_parser.single_items_dict = self.single_items_dict
@@ -507,17 +509,20 @@ class ListInfo:
 
         name = f"Botanics: {name}"
         area = raw["location"].get("area", None)
+        internal_name = raw["location"].get("name", None)
+        metadata = { "botanics": True } | raw.get("metadata", {})
         area_name = self.ctx.area_names[area]
+        code = self.__get_or_allocate_location_id(name)
 
         location = LocationData(
             name=name,
-            code=self.__get_or_allocate_location_id(name),
+            code=code,
             access=AccessInfo(region=raw["region"], cond=None),
             area=area,
-            metadata={
-                "botanics": True
-            }
+            metadata=metadata,
         )
+
+        self.botanics_internal_names_to_ids[internal_name] = code
 
         if area != None:
             try:
