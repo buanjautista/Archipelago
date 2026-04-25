@@ -4,7 +4,7 @@ This module provides the options and option dataclass for the Options dataclass.
 
 from dataclasses import dataclass
 
-from Options import Choice, DefaultOnToggle, OptionGroup, PerGameCommonOptions, Toggle, Range
+from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCommonOptions, Toggle, Range
 
 # class LogicMode(Choice):
 #     """
@@ -93,7 +93,7 @@ class QuestRando(Toggle):
     """
     display_name = "Quest Randomization"
 
-class BotanicsAmount(Range):
+class BotanicsAmount(NamedRange):
     """
     The number of plants required to turn in the quest "Crocus Pocus".
     """

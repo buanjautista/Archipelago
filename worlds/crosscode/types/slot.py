@@ -24,4 +24,5 @@ class SlotOptions(typing.TypedDict):
 class SlotData(typing.TypedDict):
     mode: str
     dataVersion: str
+    apworldVersion: str
     options: SlotOptions
