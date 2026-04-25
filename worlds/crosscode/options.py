@@ -93,6 +93,21 @@ class QuestRando(Toggle):
     """
     display_name = "Quest Randomization"
 
+class BotanicsAmount(Range):
+    """
+    The number of plants required to turn in the quest "Crocus Pocus".
+    """
+    display_name = "Botanics Completion Amount"
+
+    range_start = 1
+    range_end = 88
+    default = 77
+
+    special_range_names = {
+        "vanilla": 77,
+        "dlc": 88,
+    }
+
 class HiddenQuestRewardMode(Choice):
     """
     Some quests hide their rewards until they are completed.
@@ -526,6 +541,7 @@ class CrossCodeOptions(PerGameCommonOptions):
     vt_skip: VTSkip
 
     quest_rando: QuestRando
+    botanics_completion_amount: BotanicsAmount
     hidden_quest_reward_mode: HiddenQuestRewardMode
     hidden_quest_obfuscation_level: HiddenQuestObfuscationLevel
     quest_dialog_hints: QuestDialogHints
@@ -576,6 +592,7 @@ option_groups: list[OptionGroup] = [
         name="Quests",
         options=[
             QuestRando,
+            BotanicsAmount,
             HiddenQuestRewardMode,
             HiddenQuestObfuscationLevel,
             QuestDialogHints,
@@ -588,6 +605,12 @@ option_groups: list[OptionGroup] = [
             ShopDialogHints,
             ShopSendMode,
             ShopReceiveMode
+        ]
+    ),
+    OptionGroup(
+        name="Botanics",
+        options=[
+            Botanity,
         ]
     ),
     OptionGroup(

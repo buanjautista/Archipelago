@@ -19,6 +19,7 @@ class SlotOptions(typing.TypedDict):
     shopReceiveMode: str
     shopDialogHints: bool
     chestClearanceLevels: dict[int, str]
+    botanicsCompletionAmount: int
 
 class SlotData(typing.TypedDict):
     mode: str
