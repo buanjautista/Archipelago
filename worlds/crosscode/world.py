@@ -301,6 +301,14 @@ class CrossCodeWorld(World):
                 "Di'orbis goal requires DLC to be enabled"
             )
 
+        if (
+            not self.options.enable_dlc.value and
+            self.options.botanics_completion_amount.value > (vanilla_amt := self.options.botanics_completion_amount.special_range_names["vanilla"])
+        ):
+            raise OptionError(
+                f"Cannot have more than {vanilla_amt} botanics chests required without DLC"
+            )
+
         self.fill_pools()
 
         self.variables = defaultdict(list)

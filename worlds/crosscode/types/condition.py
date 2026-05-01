@@ -178,8 +178,6 @@ class BotanicsCompletionCondition(Condition):
             if state.can_reach_region(region, player)
         ])
 
-        print(collected, args["botanics_completion_amount"], self.amount, collected / args["botanics_completion_amount"])
-
         return collected / args["botanics_completion_amount"] >= self.amount
 
 class NeverCondition(Condition):
