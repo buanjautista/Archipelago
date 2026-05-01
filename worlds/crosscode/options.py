@@ -36,11 +36,23 @@ class Goal(Choice):
     option_diorbis = 3
     default = 0
 
+
 class EnableDLC(Toggle):
     """
     If enabled, DLC areas will be placed in logic. Requires that you have the DLC installed.
     """
     display_name = "Enable DLC"
+
+
+class CircuitOverrides(Range):
+    """
+    Number of circuit overrides to shuffle into the pool.
+    """
+    range_start = 0
+    range_end = 10
+
+    default = 5
+
 
 class VTShadeLock(Choice):
     """
@@ -535,10 +547,11 @@ class CrossCodeOptions(PerGameCommonOptions):
     # logic_mode: LogicMode
     goal: Goal
     enable_dlc: EnableDLC
+    circuit_overrides: CircuitOverrides
     vt_shade_lock: VTShadeLock
     vw_meteor_passage: VWMeteorPassage
-    closed_gaia: ClosedGaia
     vt_skip: VTSkip
+    closed_gaia: ClosedGaia
 
     quest_rando: QuestRando
     botanics_completion_amount: BotanicsAmount
