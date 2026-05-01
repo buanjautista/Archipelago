@@ -19,6 +19,7 @@ class LogicDict(typing.TypedDict):
     shop_unlock_by_shop: dict[str, ItemPoolEntry]
     shop_unlock_by_shop_and_id: dict[tuple[str, int], ItemPoolEntry]
     region_botanics_amounts: dict[str, int]
+    botanics_completion_amount: int
 
 class Condition(abc.ABC):
     @abc.abstractmethod
@@ -168,7 +169,7 @@ class ShopSlotCondition(Condition):
 
 @dataclass
 class BotanicsCompletionCondition(Condition):
-    amount: int
+    amount: float
 
     def satisfied(self, state: CollectionState, player: int, location: int | None, args: LogicDict) -> bool:
         collected = sum([
@@ -177,7 +178,7 @@ class BotanicsCompletionCondition(Condition):
             if state.can_reach_region(region, player)
         ])
 
-        return collected >= self.amount
+        return collected / args["botanics_completion_amount"] >= self.amount
 
 class NeverCondition(Condition):
     def satisfied(self, state: CollectionState, player: int, location: int | None, args: LogicDict) -> bool:

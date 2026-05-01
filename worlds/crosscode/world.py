@@ -1,4 +1,5 @@
 """
+
 This module contains the world class for CrossCode.
 """
 
@@ -300,6 +301,14 @@ class CrossCodeWorld(World):
                 "Di'orbis goal requires DLC to be enabled"
             )
 
+        if (
+            not self.options.enable_dlc.value and
+            self.options.botanics_completion_amount.value > (vanilla_amt := self.options.botanics_completion_amount.special_range_names["vanilla"])
+        ):
+            raise OptionError(
+                f"Cannot have more than {vanilla_amt} botanics chests required without DLC"
+            )
+
         self.fill_pools()
 
         self.variables = defaultdict(list)
@@ -424,6 +433,7 @@ class CrossCodeWorld(World):
             "shop_unlock_by_shop": self.world_data.shop_unlock_by_shop,
             "shop_unlock_by_shop_and_id": self.world_data.shop_unlock_by_shop_and_id,
             "region_botanics_amounts": self.world_data.region_botanics_amounts[self.logic_mode],
+            "botanics_completion_amount": self.options.botanics_completion_amount.value,
         }
 
         # Universal Tracker support
