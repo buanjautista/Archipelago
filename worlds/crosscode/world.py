@@ -1,4 +1,5 @@
 """
+
 This module contains the world class for CrossCode.
 """
 
@@ -424,6 +425,7 @@ class CrossCodeWorld(World):
             "shop_unlock_by_shop": self.world_data.shop_unlock_by_shop,
             "shop_unlock_by_shop_and_id": self.world_data.shop_unlock_by_shop_and_id,
             "region_botanics_amounts": self.world_data.region_botanics_amounts[self.logic_mode],
+            "botanics_completion_amount": self.options.botanics_completion_amount.value,
         }
 
         # Universal Tracker support
