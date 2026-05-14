@@ -45,7 +45,7 @@ shop_dict: dict[str, ShopData] = {
     'Homestedt Items': ShopData(internal_name='homestedtItems', name='Homestedt Items', metadata={'dlc': True, 'shop': True}, access=AccessInfo(region={'open': 'openDLC1'})),
     'Homestedt Weapons': ShopData(internal_name='homestedtWeapons', name='Homestedt Weapons', metadata={'dlc': True, 'shop': True}, access=AccessInfo(region={'open': 'openDLC1'})),
     'Beach Weapons': ShopData(internal_name='beachWeapons', name='Beach Weapons', metadata={'dlc': True, 'shop': True}, access=AccessInfo(region={'open': 'openDLC_Beach'})),
-    "Goat Zira's Shop": ShopData(internal_name='goatShop', name="Goat Zira's Shop", metadata={'dlc': True, 'shop': True}, access=AccessInfo(region={'open': 'open20'}, cond=[QuestCondition(quest_name='Wrath of Goat'), VariableCondition(name='canGrind')])),
+    "Goat Zira's Shop": ShopData(internal_name='goatShop', name="Goat Zira's Shop", metadata={'quest': True, 'dlc': True, 'shop': True}, access=AccessInfo(region={'open': 'open20'}, cond=[QuestCondition(quest_name='Wrath of Goat'), VariableCondition(name='canGrind')])),
     'Rhombus Weapons + DLC': ShopData(internal_name='rhombusWeapons1', name='Rhombus Weapons + DLC', metadata={'dlc': True, 'shop': True}, access=AccessInfo(region={'linear': '33', 'open': 'open20'}, cond=[VariableCondition(name='canGrind')])),
 }
 
@@ -497,8 +497,8 @@ shop_unlock_by_id = {
     567: ItemPoolEntry(item=items_dict['Global Slot Unlock: Cross Edge', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     569: ItemPoolEntry(item=items_dict['Global Slot Unlock: Cross Mail', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     570: ItemPoolEntry(item=items_dict['Global Slot Unlock: Cross Boots', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    670: ItemPoolEntry(item=items_dict['Global Slot Unlock: Goat Cheese', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    671: ItemPoolEntry(item=items_dict['Global Slot Unlock: Goat Milk', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
+    670: ItemPoolEntry(item=items_dict['Global Slot Unlock: Goat Cheese', 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    671: ItemPoolEntry(item=items_dict['Global Slot Unlock: Goat Milk', 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
 }
 
 shop_unlock_by_shop = {
@@ -527,7 +527,7 @@ shop_unlock_by_shop = {
     'homestedtItems': ItemPoolEntry(item=items_dict['Shop Unlock: Homestedt Items', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     'homestedtWeapons': ItemPoolEntry(item=items_dict['Shop Unlock: Homestedt Weapons', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     'beachWeapons': ItemPoolEntry(item=items_dict['Shop Unlock: Beach Weapons', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    'goatShop': ItemPoolEntry(item=items_dict["Shop Unlock: Goat Zira's Shop", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
+    'goatShop': ItemPoolEntry(item=items_dict["Shop Unlock: Goat Zira's Shop", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
 }
 
 shop_unlock_by_shop_and_id = {
@@ -761,12 +761,12 @@ shop_unlock_by_shop_and_id = {
     ('beachWeapons', 567): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Edge (Beach Weapons)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     ('beachWeapons', 569): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Mail (Beach Weapons)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     ('beachWeapons', 570): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Boots (Beach Weapons)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 1): ItemPoolEntry(item=items_dict["Slot Unlock: Sandwich (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 27): ItemPoolEntry(item=items_dict["Slot Unlock: Hi-Sandwich (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 2): ItemPoolEntry(item=items_dict["Slot Unlock: Green Leaf Tea (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 366): ItemPoolEntry(item=items_dict["Slot Unlock: Just Water (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 670): ItemPoolEntry(item=items_dict["Slot Unlock: Goat Cheese (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
-    ('goatShop', 671): ItemPoolEntry(item=items_dict["Slot Unlock: Goat Milk (Goat Zira's Shop)", 1], quantity=1, metadata={'dlc': True, 'shop': True}),
+    ('goatShop', 1): ItemPoolEntry(item=items_dict["Slot Unlock: Sandwich (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    ('goatShop', 27): ItemPoolEntry(item=items_dict["Slot Unlock: Hi-Sandwich (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    ('goatShop', 2): ItemPoolEntry(item=items_dict["Slot Unlock: Green Leaf Tea (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    ('goatShop', 366): ItemPoolEntry(item=items_dict["Slot Unlock: Just Water (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    ('goatShop', 670): ItemPoolEntry(item=items_dict["Slot Unlock: Goat Cheese (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
+    ('goatShop', 671): ItemPoolEntry(item=items_dict["Slot Unlock: Goat Milk (Goat Zira's Shop)", 1], quantity=1, metadata={'quest': True, 'dlc': True, 'shop': True}),
     ('rhombusWeapons1', 568): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Goggles (Rhombus Weapons + DLC)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     ('rhombusWeapons1', 567): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Edge (Rhombus Weapons + DLC)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
     ('rhombusWeapons1', 569): ItemPoolEntry(item=items_dict['Slot Unlock: Cross Mail (Rhombus Weapons + DLC)', 1], quantity=1, metadata={'dlc': True, 'shop': True}),
