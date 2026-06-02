@@ -286,7 +286,7 @@ class CrossCodeWorld(World):
             )
 
         if (
-            self.options.goal.value == self.options.goal.option_observatory and
+            "observatory" in self.options.goal_choices and
             not self.options.quest_rando.value
         ):
             raise OptionError(
@@ -294,7 +294,7 @@ class CrossCodeWorld(World):
             )
 
         if (
-            self.options.goal.value == self.options.goal.option_diorbis and
+            "diorbis" in self.options.goal_choices and
             not self.options.enable_dlc.value
         ):
             raise OptionError(
@@ -551,22 +551,23 @@ class CrossCodeWorld(World):
         if self.options.shop_rando:
             self.create_shops()
 
-        goal_name = self.options.goal.current_key
-        goal = self.region_pack.goals[goal_name]
-        goal_region = self.region_dict[goal.region]
-        goal_location = Location(self.player, "Victory", parent=goal_region)
-        goal_location.place_locked_item(Item("Victory", ItemClassification.progression, None, self.player))
-        add_rule(
-            goal_location,
-            condition_satisfied(
-                self.player,
-                goal.condition if goal.condition is not None else [],
-                None,
-                self.logic_dict
+        for goal_choice in self.options.goal_choices:
+            goal = self.region_pack.goals[goal_choice]
+            goal_choice_region = self.region_dict[goal.region]
+            goal_location = Location(self.player, goal_choice, parent=goal_choice_region)    
+            goal_location.place_locked_item(Item(goal_choice, ItemClassification.progression, None, self.player))
+            add_rule(
+                goal_location,
+                condition_satisfied(
+                    self.player,
+                    goal.condition if goal.condition is not None else [],
+                    None,
+                    self.logic_dict
+                )
             )
-        )
-        self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
-        goal_region.locations.append(goal_location)
+            goal_choice_region.locations.append(goal_location)
+        
+        self.multiworld.completion_condition[self.player] = lambda state: state.has_all(self.options.goal_choices, self.player)
 
     def create_items(self):
         exclude = self.multiworld.precollected_items[self.player][:]
@@ -786,7 +787,7 @@ class CrossCodeWorld(World):
             "dataVersion": self.world_data.data_version,
             "apworldVersion": APWORLD_VERSION_STRING,
             "options": {
-                "goal": self.options.goal.current_key,
+                "goalChoices": self.options.goal_choices.value,
                 "dlcActive": bool(self.options.enable_dlc.value),
                 "vtShadeLock": self.options.vt_shade_lock.value,
                 "rhombusHubUnlock": bool(self.options.rhombus_hub_unlock.value),

@@ -4,7 +4,7 @@ This module provides the options and option dataclass for the Options dataclass.
 
 from dataclasses import dataclass
 
-from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCommonOptions, Toggle, Range
+from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCommonOptions, Toggle, Range, OptionSet
 
 # class LogicMode(Choice):
 #     """
@@ -20,21 +20,19 @@ from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCom
 
 #     default = 1
 
-class Goal(Choice):
-    """
-    Determines what must be done to complete the game.
+class GoalChoices(OptionSet):
+    """Determines the objectives required to finish the run.
     [Creator] Ascend Vermillion Tower and fight the Creator.
+    [DungeonShades] Obtain the Blue Ice Shade, Red Flame Shade, Azure Drop Shade and Purple Bolt Shade
+    [DungeonBosses] Defeat the bosses from Temple Mine, Faj'ro Temple, So'najiz Temple and Zir'vitar Temple
     [Monkey] Ascend the Grand Krys'kajo and defeat the Son of the East.
-    [Observatory] Complete all five A Promise is a Promise quests and uncover the secret of the Observatory.
-    [Di'orbis] Descend Ku'lero temple and defeat the Gods of Shape. Requires DLC to be enabled.
-    """
-    display_name = "Goal"
+    [Observatory] Complete all five A Promise is a Promise quests and uncover the secret of the Observatory. Will force Quest Randomizer to be enabled.
+    [Di'orbis] Descend Ku'lero temple and defeat the Gods of Shape. Will force DLC to be enabled.
 
-    option_creator = 0
-    option_monkey = 1
-    option_observatory = 2
-    option_diorbis = 3
-    default = 0
+    """
+    display_name = "Goal Choices"
+    valid_keys = ["creator", "dungeon_shades", "dungeon_bosses", "monkey", "observatory", "diorbis"]
+    default = ["creator"]
 
 
 class EnableDLC(Toggle):
@@ -545,7 +543,7 @@ class CrossCodeOptions(PerGameCommonOptions):
     Options dataclass for CrossCode
     """
     # logic_mode: LogicMode
-    goal: Goal
+    goal_choices: GoalChoices
     enable_dlc: EnableDLC
     circuit_overrides: CircuitOverrides
     vt_shade_lock: VTShadeLock

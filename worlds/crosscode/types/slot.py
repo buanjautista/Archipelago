@@ -1,7 +1,7 @@
 import typing
 
 class SlotOptions(typing.TypedDict):
-    goal: str
+    goalChoices: list[str]
     dlcActive: bool
     vtShadeLock: int | bool
     rhombusHubUnlock: bool
