@@ -63,8 +63,8 @@ class MarkerGenerator:
         map_id = loc_data.get("mapId", None)
         if map_id is None:
             return None
+        extension = loc_data.get("extension", "")
         
-        extension = raw_loc.get("extension", "")
         meta = raw_loc.get("metadata", {})
 
         map = self.__load_map(map_name, meta.get("dlc", False), extension)

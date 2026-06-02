@@ -27,11 +27,12 @@ class GoalChoices(OptionSet):
     [DungeonBosses] Defeat the bosses from Temple Mine, Faj'ro Temple, So'najiz Temple and Zir'vitar Temple
     [Monkey] Ascend the Grand Krys'kajo and defeat the Son of the East.
     [Observatory] Complete all five A Promise is a Promise quests and uncover the secret of the Observatory. Will force Quest Randomizer to be enabled.
+    [FacilityX] Obtain four encrypted keys and enter the Facility X. Will force Quest Randomizer to be enabled.
     [Di'orbis] Descend Ku'lero temple and defeat the Gods of Shape. Will force DLC to be enabled.
 
     """
     display_name = "Goal Choices"
-    valid_keys = ["creator", "dungeon_shades", "dungeon_bosses", "monkey", "observatory", "diorbis"]
+    valid_keys = ["creator", "dungeon_shades", "dungeon_bosses", "monkey", "observatory", "diorbis", "facility_x"]
     default = ["creator"]
 
 

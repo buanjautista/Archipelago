@@ -292,6 +292,14 @@ class CrossCodeWorld(World):
             raise OptionError(
                 "Observatory goal requires quest randomization to be enabled"
             )
+        
+        if (
+            "facility_x" in self.options.goal_choices and
+            not self.options.quest_rando.value
+        ):
+            raise OptionError(
+                "Facility X goal requires quest randomization to be enabled"
+            )
 
         if (
             "diorbis" in self.options.goal_choices and
